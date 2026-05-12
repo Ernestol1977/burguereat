@@ -6,7 +6,7 @@ const NavbarPage = ({ cartCount }) => {
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          🍔 HamburEat
+          logo HamburEat
         </Navbar.Brand>
 
         <Nav className="me-auto">
