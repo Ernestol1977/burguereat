@@ -1,3 +1,4 @@
+import "./productCard.css";
 import { Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router";
 
@@ -19,8 +20,7 @@ const ProductCard = ({ product, addToCart }) => {
                 </Button>
 
                 <Button 
-                  variant="success"
-                  className="ms-2"
+                  className="ms-2 btn-custom"
                   onClick={() => addToCart(product)}
                   >
                   Seleccionar
