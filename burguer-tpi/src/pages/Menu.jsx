@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { productServices } from "../services/productServices";
-import ProductCard from "../components/navBar/ProductCard";
+import ProductCard from "../components/ProductCard";
 
 const Menu = ({ addToCart }) => {
     const [products, setProducts] = useState([]);

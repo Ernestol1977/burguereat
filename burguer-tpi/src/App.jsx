@@ -1,33 +1,59 @@
 import "./app.css";
-import { BrowserRouter, Route, Routes } from "react-router"
-
-import NavbarPage from "./components/navBar/NavBar"
-import Menu from "./pages/Menu"
-import Login from "./auth/Login"
-import ProductDetails from "./pages/ProductDetails";
-import NuestraHistoria from "./pages/NuestraHistoria"
-import Cart from "./pages/Cart"
+import { BrowserRouter, Route, Routes } from "react-router";
 import { useState } from "react";
 
+import NavBarPage from "./components/NavBar";
+import Menu from "./pages/Menu";
+import ProductDetails from "./pages/ProductDetails";
+import OurStory from "./pages/OurStory";
+import Cart from "./pages/Cart";
+import Login from "./auth/Login";
+
 function App() {
-  const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState([]);
 
-  const addToCart = (product) => {
-    setCart(prev => [...prev, product])
-  }
+    const addToCart = (product) => {
+        setCart((prev) => {
+            const existing = prev.find((p) => p.id === product.id);
 
-  return (
-    <BrowserRouter>
-    <NavbarPage cart={cart.length} />
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/" element={<Menu />} />
-      <Route path="/detalle/:id" element={<ProductDetails addToCart={addToCart} />} />
-      <Route path="/historia" element={<NuestraHistoria />} />
-      <Route path="/carrito" element={<Cart cart={cart} />} />
-    </Routes>
-    </BrowserRouter>
-  )
+            if (existing) {
+                return prev.map((p) =>
+                    p.id === product.id
+                        ? { ...p, quantity: p.quantity + 1 }
+                        : p,
+                );
+            }
+
+            return [
+                ...prev,
+                {
+                    ...product,
+                    quantity: 1,
+                },
+            ];
+        });
+    };
+
+    return (
+        <BrowserRouter>
+            <NavBarPage
+                cartCount={cart.reduce((acc, item) => acc + item.quantity, 0)}
+            />
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<Menu addToCart={addToCart} />} />
+                <Route
+                    path="/detalle/:id"
+                    element={<ProductDetails addToCart={addToCart} />}
+                />
+                <Route path="/historia" element={<OurStory />} />
+                <Route
+                    path="/carrito"
+                    element={<Cart cart={cart} setCart={setCart} />}
+                />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;

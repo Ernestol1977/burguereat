@@ -29,8 +29,8 @@ const ProductDetails = ({ addToCart }) => {
             <Button variant="dark" className="mt-4 btn-custom-volver" onClick={() => navigate("/")}>
                 Volver
             </Button>
-            <Button className="mt-4 ms-2 btn-custom">
-                Seleccionar
+            <Button className="mt-4 ms-2 btn-custom" onClick={() => addToCart(product)}>
+                Sumar al carrito
             </Button>
         </div>
     );

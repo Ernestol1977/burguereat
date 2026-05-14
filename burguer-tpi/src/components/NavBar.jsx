@@ -1,7 +1,7 @@
 import { Navbar, Nav, Container, Badge } from "react-bootstrap"
 import { Link } from 'react-router'
 
-const NavbarPage = ({ cartCount }) => {
+const NavBarPage = ({ cartCount }) => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
@@ -24,4 +24,4 @@ const NavbarPage = ({ cartCount }) => {
     </Navbar>
   )
 }
-export default NavbarPage;
+export default NavBarPage;
