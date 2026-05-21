@@ -8,7 +8,14 @@ const OurStory = () => {
     return (
         <div className="container mt-4 text-center">
             <h1>Sobre HamburEat</h1>
-            <img src="https://devsapihub.com/img-fast-food/hamburguesas_06.jpg" alt="" />
+            <img
+                style={{
+                    height: "400px",
+                    objectFit: "cover",
+                }}
+                src="https://devsapihub.com/img-fast-food/hamburguesas_06.jpg"
+                alt=""
+            />
 
             <p className="mt-3">
                 HamburEat nace con la pasión por las hamburguesas de calidad,

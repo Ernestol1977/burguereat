@@ -8,6 +8,7 @@ import ProductDetails from "./pages/ProductDetails";
 import OurStory from "./pages/OurStory";
 import Cart from "./pages/Cart";
 import Login from "./auth/Login";
+import AdminProducts from "./pages/AdminProducts";
 
 function App() {
     const [cart, setCart] = useState([]);
@@ -51,6 +52,7 @@ function App() {
                     path="/carrito"
                     element={<Cart cart={cart} setCart={setCart} />}
                 />
+
             </Routes>
         </BrowserRouter>
     );
