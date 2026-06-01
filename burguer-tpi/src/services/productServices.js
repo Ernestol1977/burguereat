@@ -7,14 +7,16 @@ export const productServices = async() => {
       name: "Hamburguesa Clásica",
       price: 8000,
       detail: "Carne vacuna, lechuga, tomate y aderezo",
-      img: "https://foodish-api.com/images/burger/burger50.jpg"
+      img: "https://foodish-api.com/images/burger/burger50.jpg",
+      alt: "Hamburguesa Clásica"
     },
     {
       id: 2,
       name: "Cheese Burguer",
       price: 9000,
       detail: "Carne vacuna, chaddar y bacon",
-      img: "https://foodish-api.com/images/burger/burger1.jpg"
+      img: "https://foodish-api.com/images/burger/burger1.jpg",
+      alt: "Cheese Burguer"
     }
   ]
 }

@@ -1,12 +1,13 @@
-import { Navbar, Nav, Container, Badge } from "react-bootstrap"
-import { Link } from 'react-router'
+import { Navbar, Nav, Container, Badge } from "react-bootstrap";
+import { Link } from 'react-router';
+import "./navBar.css";
 
 const NavBarPage = ({ cartCount }) => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/">
-          logo HamburEat
+        <Navbar.Brand as={Link} to="/" className="title">
+          logo BurgerEat
         </Navbar.Brand>
 
         <Nav className="me-auto">

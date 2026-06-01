@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
 
-const OurStory = () => {
+const History = () => {
     const navigate = useNavigate();
 
     return (
@@ -29,4 +29,4 @@ const OurStory = () => {
     );
 };
 
-export default OurStory;
+export default History;

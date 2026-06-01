@@ -5,10 +5,9 @@ import { useState } from "react";
 import NavBarPage from "./components/NavBar";
 import Menu from "./pages/Menu";
 import ProductDetails from "./pages/ProductDetails";
-import OurStory from "./pages/OurStory";
 import Cart from "./pages/Cart";
 import Login from "./auth/Login";
-import AdminProducts from "./pages/AdminProducts";
+import History from "./pages/History";
 
 function App() {
     const [cart, setCart] = useState([]);
@@ -47,12 +46,11 @@ function App() {
                     path="/detalle/:id"
                     element={<ProductDetails addToCart={addToCart} />}
                 />
-                <Route path="/historia" element={<OurStory />} />
+                <Route path="/historia" element={<History />} />
                 <Route
                     path="/carrito"
                     element={<Cart cart={cart} setCart={setCart} />}
                 />
-
             </Routes>
         </BrowserRouter>
     );

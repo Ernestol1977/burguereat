@@ -3,6 +3,7 @@ import "./productDetails.css"
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { productServices } from "../services/productServices";
+
 import { Button } from "react-bootstrap";
 
 const ProductDetails = ({ addToCart }) => {
@@ -21,7 +22,7 @@ const ProductDetails = ({ addToCart }) => {
 
     return (
         <div className="container mt-4">
-            <img src={product.img} alt="" sizes="400" />
+            <img src={product.img} width="400" />
             <h2>{product.name}</h2>
             <h5>${product.price}</h5>
             <p>{product.detail}</p>
