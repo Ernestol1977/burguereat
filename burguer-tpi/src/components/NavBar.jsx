@@ -7,19 +7,13 @@ const NavBar = ({ cartCount, user, setUser }) => {
         <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
                 <Navbar.Brand as={Link} to="/" className="title">
+                    <img
+                        src="/logoHamburEat.png"
+                        alt="BurgerEat"
+                        className="navbar-logo"
+                    />
                     logo BurgerEat
                 </Navbar.Brand>
-const NavBarPage = ({ cartCount }) => {
-  return (
-    <Navbar bg="dark" variant="dark" expand="lg">
-      <Container>
-        <Navbar.Brand as={Link} to="/" className="title">
-          <img
-            src="/logoHamburEat.png"
-            alt="BurgerEat"
-            className="navbar-logo"
-          />
-        </Navbar.Brand>
 
                 <Nav className="me-auto">
                     <Nav.Link as={Link} to="/">
