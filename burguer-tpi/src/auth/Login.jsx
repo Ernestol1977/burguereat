@@ -2,25 +2,44 @@ import "./login.css";
 import { useState } from "react";
 import { Button, Card, CardBody, Container, Form } from "react-bootstrap";
 import { validateLogin } from "../validations/loginValidation.js";
+import { errorToast, successToast } from "../ui/notFound/notifications.js";
 
-const Login = () => {
+const Login = ({ setUser }) => {
     const [form, setForm] = useState({
         email: "",
         password: "",
     });
+
+    const [error, setError] = useState({});
 
     const handleChange = (e) => {
         setForm({
             ...form,
             [e.target.name]: e.target.value,
         });
+        setError((prev) => ({
+            ...prev,
+            [e.target.name]: "",
+        }));
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(form);
+
         const validationErrors = validateLogin(form);
 
+        setError(validationErrors);
+
+        if (Object.keys(validationErrors).length > 0) {
+            Object.values(validationErrors).forEach((error) => {
+                errorToast(error);
+            });
+            return;
+        }
+
+        successToast("Login válido");
+
+        console.log(form);
     };
 
     return (
