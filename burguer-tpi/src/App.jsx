@@ -1,8 +1,9 @@
 import "./app.css";
+import { ToastContainer } from "react-toastify";
 import { BrowserRouter, Route, Routes } from "react-router";
 import { useState } from "react";
 
-import NavBarPage from "./components/NavBar";
+import NavBar from "./components/NavBar";
 import Menu from "./pages/Menu";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
@@ -11,6 +12,8 @@ import History from "./pages/History";
 
 function App() {
     const [cart, setCart] = useState([]);
+    const [user, setUser] = useState(null);
+
 
     const addToCart = (product) => {
         setCart((prev) => {
@@ -35,24 +38,32 @@ function App() {
     };
 
     return (
-        <BrowserRouter>
-            <NavBarPage
-                cartCount={cart.reduce((acc, item) => acc + item.quantity, 0)}
-            />
-            <Routes>
-                <Route path="/login" element={<Login />} />
-                <Route path="/" element={<Menu addToCart={addToCart} />} />
-                <Route
-                    path="/detalle/:id"
-                    element={<ProductDetails addToCart={addToCart} />}
+        <div>
+            <ToastContainer />
+            <BrowserRouter>
+                <NavBar
+                    cartCount={cart.reduce(
+                        (acc, item) => acc + item.quantity,
+                        0,
+                    )} 
+                    user = {user}
+                    setUser = {setUser}
                 />
-                <Route path="/historia" element={<History />} />
-                <Route
-                    path="/carrito"
-                    element={<Cart cart={cart} setCart={setCart} />}
-                />
-            </Routes>
-        </BrowserRouter>
+                <Routes>
+                    <Route path="/login" element={<Login setUser={setUser} />} />
+                    <Route path="/" element={<Menu addToCart={addToCart} />} />
+                    <Route
+                        path="/detalle/:id"
+                        element={<ProductDetails addToCart={addToCart} />}
+                    />
+                    <Route path="/historia" element={<History />} />
+                    <Route
+                        path="/carrito"
+                        element={<Cart cart={cart} setCart={setCart} />}
+                    />
+                </Routes>
+            </BrowserRouter>
+        </div>
     );
 }
 
