@@ -12,7 +12,6 @@ const NavBar = ({ cartCount, user, setUser }) => {
                         alt="BurgerEat"
                         className="navbar-logo"
                     />
-                    logo BurgerEat
                 </Navbar.Brand>
 
                 <Nav className="me-auto">
