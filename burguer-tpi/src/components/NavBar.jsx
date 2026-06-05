@@ -30,9 +30,15 @@ const NavBar = ({ cartCount, user, setUser }) => {
                     {user ? (
                         <Navbar.Text>Hola {user.name}</Navbar.Text>
                     ) : (
-                        <Nav.Link as={Link} to="/login">
-                            Login
-                        </Nav.Link>
+                        <div className="d-flex gap-2 ">
+                            <Nav.Link as={Link} to="/login">
+                                Login
+                            </Nav.Link>
+                            |
+                            <Nav.Link as={Link} to="/register">
+                                Registrarse
+                            </Nav.Link>
+                        </div>
                     )}
                 </Nav>
             </Container>

@@ -1,8 +1,9 @@
-import "./login.css";
+import "./auth.css";
 import { useState } from "react";
 import { Button, Card, CardBody, Container, Form } from "react-bootstrap";
 import { validateLogin } from "../validations/loginValidation.js";
-import { errorToast, successToast } from "../ui/notFound/notifications.js";
+import { errorToast, successToast } from "../ui/notFound/notifications";
+import { Link } from "react-router";
 
 const Login = ({ setUser }) => {
     const [form, setForm] = useState({
@@ -74,6 +75,14 @@ const Login = ({ setUser }) => {
                                 Ingresar
                             </Button>
                         </Form.Group>
+
+                        <div className="d-flex justify-content-end mt-3">
+                            <Link to="/register">
+                                <Button className="btn-ctm">
+                                    Registrarse
+                                </Button>
+                            </Link>
+                        </div>
                     </Form>
                 </CardBody>
             </Card>

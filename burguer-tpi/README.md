@@ -1,4 +1,6 @@
 # BurgerEat
+
+
 Estructura
 /src
   /components
@@ -11,7 +13,7 @@ Estructura
     Menu.jsx
     productDetails.jsx
     Cart.jsx
-    OurStory.jsx
+    History.jsx
     Login.jsx
   /services
     productService.js

@@ -9,11 +9,11 @@ import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Login from "./auth/Login";
 import History from "./pages/History";
+import Register from "./auth/Register";
 
 function App() {
     const [cart, setCart] = useState([]);
     const [user, setUser] = useState(null);
-
 
     const addToCart = (product) => {
         setCart((prev) => {
@@ -45,12 +45,19 @@ function App() {
                     cartCount={cart.reduce(
                         (acc, item) => acc + item.quantity,
                         0,
-                    )} 
-                    user = {user}
-                    setUser = {setUser}
+                    )}
+                    user={user}
+                    setUser={setUser}
                 />
                 <Routes>
-                    <Route path="/login" element={<Login setUser={setUser} />} />
+                    <Route
+                        path="/login"
+                        element={<Login setUser={setUser} />}
+                    />
+                    <Route
+                        path="/register"
+                        element={<Register setUser={setUser} />}
+                    />
                     <Route path="/" element={<Menu addToCart={addToCart} />} />
                     <Route
                         path="/detalle/:id"

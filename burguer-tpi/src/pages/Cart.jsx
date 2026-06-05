@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router";
 
 const Cart = ({ cart, setCart }) => {
     console.log(cart);
@@ -40,7 +41,7 @@ const Cart = ({ cart, setCart }) => {
             <h1>Carrito</h1>
             <div className="mx-5">
                 {cart.length === 0 ? (
-                    <p>No hay burgers seleccionadas. No te las pierdas!</p>
+                    <p>No hay burgers seleccionadas. No te las pierdas! Has <Link to={"/"}>click aquí</Link> para hacer tú pedido.</p>
                 ) : (
                     <div>
                         {cart.map((item) => (
@@ -71,6 +72,7 @@ const Cart = ({ cart, setCart }) => {
 
                         <hr />
                         <h3>Total: ${total}</h3>
+                        
                     </div>
                 )}
             </div>

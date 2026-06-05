@@ -1,0 +1,55 @@
+.card {
+  width: 400px;
+  background: #ff7a00;
+  color: #000;
+}
+
+.btn-ctm, .btn-ctm:disabled {
+  background-color: #000;
+  border: 1px solid transparent;
+  color: #ff7a00;
+  margin-top: 1rem;
+}
+
+.btn-ctm:hover {
+  background-color: #a35002;
+  color: #000;
+  margin-top: 1rem;
+  border-color: #000;
+}
+
+.form-control {
+  background-color: #cc6300;
+  border-color: #000;
+}
+
+.form-control:focus {
+  background-color: #a35002;
+  border-color: #000;
+  box-shadow: none;
+  outline: none;
+}
+
+.form-check-input {
+  background-color: #cc6300;
+  border-color: #000;
+}
+
+.form-check-input:hover {
+  background-color: #cc6300;
+  border-color: #000;
+}
+
+.form-check-input:checked {
+  background-color: #cc6300;
+  border-color: #000;
+  color: #000;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='black' d='M16.704 5.29a1 1 0 0 1 0 1.42l-7.2 7.2a1 1 0 0 1-1.42 0l-3.2-3.2a1 1 0 1 1 1.42-1.42l2.49 2.49 6.49-6.49a1 1 0 0 1 1.42 0z'/%3e%3c/svg%3e");
+
+}
+
+.form-check-input:focus {
+  box-shadow: none;
+  border-color: #000;
+}
+
