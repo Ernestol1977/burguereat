@@ -1,11 +1,35 @@
-# React + Vite
+# Burguer API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Backend API para el proyecto Burguer usando Node.js, Express, SQLite y Sequelize.
 
-Currently, two official plugins are available:
+## Instalación
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Desde la carpeta `burguer-tpi-api`:
+
+```powershell
+npm install
+```
+
+## Ejecutar en desarrollo
+
+```powershell
+npm run dev
+```
+
+El servidor quedará disponible en `http://localhost:3001`.
+
+## Endpoints
+
+- `GET /api` - estado del servidor
+- `GET /api/products` - lista de productos
+- `GET /api/products/:id` - producto por id
+- `POST /api/products` - crear producto
+- `PUT /api/products/:id` - actualizar producto
+- `DELETE /api/products/:id` - eliminar producto
+
+## Base de datos
+
+La base de datos SQLite se guarda en `database.sqlite` y se crea automáticamente en el primer arranque.
 
 ## React Compiler
 
