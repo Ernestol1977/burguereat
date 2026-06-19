@@ -1,40 +1,90 @@
-# Burguer API
+# BurgerEat API
 
-Backend API para el proyecto Burguer usando Node.js, Express, SQLite y Sequelize.
+Backend simple para el TPI de Programacion III.
 
-## Instalación
+## Estructura
 
-Desde la carpeta `burguer-tpi-api`:
+```txt
+server.js
+src/
+  database/
+    db.js
+    burgereat.sqlite
+  helpers/
+  middlewares/
+  models/
+  routes/
+  services/
+```
+
+## Comandos
 
 ```powershell
 npm install
-```
-
-## Ejecutar en desarrollo
-
-```powershell
 npm run dev
 ```
 
-El servidor quedará disponible en `http://localhost:3001`.
+El servidor queda en:
 
-## Endpoints
-
-- `GET /api` - estado del servidor
-- `GET /api/products` - lista de productos
-- `GET /api/products/:id` - producto por id
-- `POST /api/products` - crear producto
-- `PUT /api/products/:id` - actualizar producto
-- `DELETE /api/products/:id` - eliminar producto
+```txt
+http://localhost:3001
+```
 
 ## Base de datos
 
-La base de datos SQLite se guarda en `database.sqlite` y se crea automáticamente en el primer arranque.
+La base SQLite se crea automaticamente en:
 
-## React Compiler
+```txt
+src/database/burgereat.sqlite
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Ese archivo se puede abrir con DBeaver usando una conexion SQLite.
 
-## Expanding the ESLint configuration
+## Usuarios de prueba
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Todos usan password:
+
+```txt
+Admin123!
+```
+
+```txt
+super@burgereat.com   super-admin
+admin@burgereat.com   admin
+cliente@burgereat.com usuario
+```
+
+## Endpoints principales
+
+```txt
+GET  /api
+
+POST /api/auth/register
+POST /api/auth/login
+GET  /api/auth/me
+
+GET    /api/products
+GET    /api/products/:id
+POST   /api/products
+PUT    /api/products/:id
+DELETE /api/products/:id
+
+GET    /api/users
+GET    /api/users/:id
+POST   /api/users
+PUT    /api/users/:id
+PUT    /api/users/:id/role
+DELETE /api/users/:id
+
+GET    /api/orders
+GET    /api/orders/my-orders
+POST   /api/orders
+PUT    /api/orders/:id/status
+DELETE /api/orders/:id
+```
+
+Las rutas protegidas usan:
+
+```txt
+Authorization: Bearer TOKEN
+```
