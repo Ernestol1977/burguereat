@@ -43,18 +43,18 @@ export const seedDatabase = async () => {
     if (productCount === 0) {
         await Product.bulkCreate([
             {
-                name: "Hamburguesa Clasica",
-                detail: "Carne vacuna, lechuga, tomate y aderezo.",
-                price: 8000,
-                img: "https://foodish-api.com/images/burger/burger50.jpg",
-                alt: "Hamburguesa Clasica",
+                name: "BurgerEat Clásica",
+                detail: "Carne vacuna, queso, lechuga, tomate, cebolla morada.",
+                price: 10000,
+                img: "https://i.imgur.com/rMwTpda.jpeg",
+                alt: "Clásica",
             },
             {
-                name: "Cheese Burger",
-                detail: "Carne vacuna, cheddar y bacon.",
-                price: 9000,
-                img: "https://foodish-api.com/images/burger/burger1.jpg",
-                alt: "Cheese Burger",
+                name: "BurgerEat Clásica + pepinillos",
+                detail: "Carne vacuna, queso, lechuga, tomate, cebolla, pepinillos.",
+                price: 11000,
+                img: "https://i.imgur.com/7XZVfBC.jpeg",
+                alt: "Clásica + pepinillos",
             },
         ]);
     }
