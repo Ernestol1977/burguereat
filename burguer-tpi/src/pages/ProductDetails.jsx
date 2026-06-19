@@ -1,4 +1,4 @@
-import "./productDetails.css";
+import "../customs/productDetails.css";
 import "../customs/customBtns.css";
 
 import { useEffect, useState } from "react";

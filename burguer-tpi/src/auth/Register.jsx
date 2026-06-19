@@ -1,5 +1,5 @@
 import { Button, Card, CardBody, Container, Form } from "react-bootstrap";
-import "./auth.css";
+import "../customs/auth.css";
 import { useState } from "react";
 import { Link } from "react-router";
 import { errorToast, successToast } from "../ui/notFound/notifications";

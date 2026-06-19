@@ -1,4 +1,4 @@
-import "./auth.css";
+import "../customs/auth.css";
 import { useState } from "react";
 import { Button, Card, CardBody, Container, Form } from "react-bootstrap";
 import { validateLogin } from "../validations/loginValidation.js";

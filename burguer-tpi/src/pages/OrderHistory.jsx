@@ -3,7 +3,7 @@ import { Badge, Card, ListGroup } from "react-bootstrap";
 import { useAuth } from "../services/auth/useAuth";
 import { getMyOrders } from "../services/orderServices";
 import { errorToast } from "../ui/notFound/notifications";
-import "./orderHistory.css";
+import "../customs/orderHistory.css";
 
 const OrderHistory = () => {
     const { token } = useAuth();

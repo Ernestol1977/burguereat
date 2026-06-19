@@ -1,4 +1,4 @@
-import "./navBar.css";
+import "../customs/navBar.css";
 import { Link } from "react-router";
 import { Navbar, Nav, Container, Badge, Button, Form } from "react-bootstrap";
 import { useAuth } from "../services/auth/useAuth";

@@ -14,7 +14,12 @@ const statuses = ["pendiente", "preparando", "entregado", "cancelado"];
 const AdminOrders = () => {
     const { token } = useAuth();
     const [orders, setOrders] = useState([]);
-    const [filters, setFilters] = useState({ userId: "", status: "", from: "", to: "" });
+    const [filters, setFilters] = useState({
+        userId: "",
+        status: "",
+        from: "",
+        to: "",
+    });
 
     const loadOrders = async () => {
         try {
@@ -25,7 +30,9 @@ const AdminOrders = () => {
     };
 
     useEffect(() => {
-        getOrders(token, filters).then(setOrders).catch((error) => errorToast(error.message));
+        getOrders(token, filters)
+            .then(setOrders)
+            .catch((error) => errorToast(error.message));
     }, [filters, token]);
 
     const handleFilterChange = (event) => {
@@ -65,7 +72,11 @@ const AdminOrders = () => {
                     value={filters.userId}
                     onChange={handleFilterChange}
                 />
-                <Form.Select name="status" value={filters.status} onChange={handleFilterChange}>
+                <Form.Select
+                    name="status"
+                    value={filters.status}
+                    onChange={handleFilterChange}
+                >
                     <option value="">Todos los estados</option>
                     {statuses.map((status) => (
                         <option key={status} value={status}>
@@ -87,7 +98,13 @@ const AdminOrders = () => {
                 />
             </Form>
 
-            <Table responsive striped bordered hover className="mt-4 table-themed">
+            <Table
+                responsive
+                striped
+                bordered
+                hover
+                className="mt-4 table-themed"
+            >
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -106,10 +123,15 @@ const AdminOrders = () => {
                             <td>
                                 {order.user?.name} {order.user?.lastName}
                             </td>
-                            <td>{new Date(order.createdAt).toLocaleDateString()}</td>
+                            <td>
+                                {new Date(order.createdAt).toLocaleDateString()}
+                            </td>
                             <td>
                                 {order.items
-                                    ?.map((item) => `${item.productName} x${item.quantity}`)
+                                    ?.map(
+                                        (item) =>
+                                            `${item.productName} x${item.quantity}`,
+                                    )
                                     .join(", ")}
                             </td>
                             <td>${order.total}</td>
@@ -118,7 +140,10 @@ const AdminOrders = () => {
                                     size="sm"
                                     value={order.status}
                                     onChange={(event) =>
-                                        handleStatusChange(order.id, event.target.value)
+                                        handleStatusChange(
+                                            order.id,
+                                            event.target.value,
+                                        )
                                     }
                                 >
                                     {statuses.map((status) => (
