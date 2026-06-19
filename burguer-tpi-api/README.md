@@ -2,26 +2,11 @@
 
 Backend simple para el TPI de Programacion III.
 
-## Estructura
-
-```txt
-server.js
-src/
-  database/
-    db.js
-    burgereat.sqlite
-  helpers/
-  middlewares/
-  models/
-  routes/
-  services/
-```
-
 ## Comandos
 
 ```powershell
 npm install
-npm run dev
+npm start
 ```
 
 El servidor queda en:
@@ -49,11 +34,11 @@ Admin123!
 ```
 
 ```txt
-super@burgereat.com   super-admin
-admin@burgereat.com   admin
-cliente@burgereat.com usuario
+super@burgereat.com     super-admin
+admin@burgereat.com     admin
+johnniew@burgereat.com  usuario
 ```
-
+<!-- 
 ## Endpoints principales
 
 ```txt
@@ -81,7 +66,7 @@ GET    /api/orders/my-orders
 POST   /api/orders
 PUT    /api/orders/:id/status
 DELETE /api/orders/:id
-```
+``` -->
 
 Las rutas protegidas usan:
 
