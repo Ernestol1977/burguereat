@@ -1,10 +1,11 @@
-import "./productDetails.css"
+import "./productDetails.css";
 
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { productServices } from "../services/productServices";
+import { getProduct } from "../services/productServices";
 
-import { Button } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
+import { errorToast } from "../ui/notFound/notifications";
 
 const ProductDetails = ({ addToCart }) => {
     const { id } = useParams();
@@ -12,27 +13,47 @@ const ProductDetails = ({ addToCart }) => {
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
-        productServices().then((data) => {
-            const findProduct = data.find((p) => p.id === parseInt(id));
-            setProduct(findProduct);
-        });
+        getProduct(id)
+            .then(setProduct)
+            .catch((error) => errorToast(error.message));
     }, [id]);
 
     if (!product) return <p>Buscando...</p>;
 
     return (
         <div className="container mt-4">
-            <img src={product.img} width="400" />
-            <h2>{product.name}</h2>
-            <h5>${product.price}</h5>
-            <p>{product.detail}</p>
+            <Row className="align-items-center">
+                <Col md={6}>
+                    <img
+                        src={product.img}
+                        alt={product.name}
+                        className="product-detail-img"
+                    />
+                </Col>
 
-            <Button variant="dark" className="mt-4 btn-custom-volver" onClick={() => navigate("/")}>
-                Volver
-            </Button>
-            <Button className="mt-4 ms-2 btn-custom" onClick={() => addToCart(product)}>
-                Sumar al carrito
-            </Button>
+                <Col md={6} className="product-detail-info">
+                    <h2>{product.name}</h2>
+                    <h5>${product.price}</h5>
+                    <p>{product.detail}</p>
+
+                    <div className="product-detail-buttons">
+                        <Button
+                            variant="dark"
+                            className="btn-custom-volver"
+                            onClick={() => navigate("/")}
+                        >
+                            Volver
+                        </Button>
+
+                        <Button
+                            className="btn-custom"
+                            onClick={() => addToCart(product)}
+                        >
+                            Sumar al carrito
+                        </Button>
+                    </div>
+                </Col>
+            </Row>
         </div>
     );
 };

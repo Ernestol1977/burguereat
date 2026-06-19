@@ -8,12 +8,16 @@ import Menu from "./pages/Menu";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
 import Login from "./auth/Login";
-import History from "./pages/History";
+import OrderHistory from "./pages/OrderHistory";
 import Register from "./auth/Register";
+import { AuthProvider } from "./services/auth/AuthContext";
+import ProtectedRoute from "./components/routing/ProtectedRoute";
+import AdminProducts from "./pages/AdminProducts";
+import AdminOrders from "./pages/AdminOrders";
+import AdminUsers from "./pages/AdminUsers";
 
 function App() {
     const [cart, setCart] = useState([]);
-    const [user, setUser] = useState(null);
 
     const addToCart = (product) => {
         setCart((prev) => {
@@ -40,36 +44,68 @@ function App() {
     return (
         <div>
             <ToastContainer />
-            <BrowserRouter>
-                <NavBar
-                    cartCount={cart.reduce(
-                        (acc, item) => acc + item.quantity,
-                        0,
-                    )}
-                    user={user}
-                    setUser={setUser}
-                />
-                <Routes>
-                    <Route
-                        path="/login"
-                        element={<Login setUser={setUser} />}
+            <AuthProvider>
+                <BrowserRouter>
+                    <NavBar
+                        cartCount={cart.reduce(
+                            (acc, item) => acc + item.quantity,
+                            0,
+                        )}
                     />
-                    <Route
-                        path="/register"
-                        element={<Register setUser={setUser} />}
-                    />
-                    <Route path="/" element={<Menu addToCart={addToCart} />} />
-                    <Route
-                        path="/detalle/:id"
-                        element={<ProductDetails addToCart={addToCart} />}
-                    />
-                    <Route path="/historia" element={<History />} />
-                    <Route
-                        path="/carrito"
-                        element={<Cart cart={cart} setCart={setCart} />}
-                    />
-                </Routes>
-            </BrowserRouter>
+                    <Routes>
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route
+                            path="/"
+                            element={<Menu addToCart={addToCart} />}
+                        />
+                        <Route
+                            path="/detalle/:id"
+                            element={<ProductDetails addToCart={addToCart} />}
+                        />
+                        <Route
+                            path="/historial"
+                            element={
+                                <ProtectedRoute>
+                                    <OrderHistory />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/carrito"
+                            element={<Cart cart={cart} setCart={setCart} />}
+                        />
+                        <Route
+                            path="/admin/productos"
+                            element={
+                                <ProtectedRoute
+                                    roles={["admin", "super-admin"]}
+                                >
+                                    <AdminProducts />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/admin/pedidos"
+                            element={
+                                <ProtectedRoute
+                                    roles={["admin", "super-admin"]}
+                                >
+                                    <AdminOrders />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/admin/usuarios"
+                            element={
+                                <ProtectedRoute roles={["super-admin"]}>
+                                    <AdminUsers />
+                                </ProtectedRoute>
+                            }
+                        />
+                    </Routes>
+                </BrowserRouter>
+            </AuthProvider>
         </div>
     );
 }

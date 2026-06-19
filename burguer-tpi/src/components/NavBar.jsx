@@ -1,8 +1,13 @@
 import "./navBar.css";
 import { Link } from "react-router";
-import { Navbar, Nav, Container, Badge } from "react-bootstrap";
+import { Navbar, Nav, Container, Badge, Button } from "react-bootstrap";
+import { useAuth } from "../services/auth/useAuth";
 
-const NavBar = ({ cartCount, user, setUser }) => {
+const NavBar = ({ cartCount }) => {
+    const { user, logout } = useAuth();
+    const isAdmin = user?.role === "admin" || user?.role === "super-admin";
+    const isSuperAdmin = user?.role === "super-admin";
+
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
@@ -18,9 +23,24 @@ const NavBar = ({ cartCount, user, setUser }) => {
                     <Nav.Link as={Link} to="/">
                         Menú
                     </Nav.Link>
-                    <Nav.Link as={Link} to="/historia">
-                        Nuestra Historia
+                    <Nav.Link as={Link} to="/historial">
+                        Mis pedidos
                     </Nav.Link>
+                    {isAdmin && (
+                        <>
+                            <Nav.Link as={Link} to="/admin/productos">
+                                Productos
+                            </Nav.Link>
+                            <Nav.Link as={Link} to="/admin/pedidos">
+                                Pedidos
+                            </Nav.Link>
+                        </>
+                    )}
+                    {isSuperAdmin && (
+                        <Nav.Link as={Link} to="/admin/usuarios">
+                            Usuarios
+                        </Nav.Link>
+                    )}
                 </Nav>
 
                 <Nav>
@@ -28,7 +48,12 @@ const NavBar = ({ cartCount, user, setUser }) => {
                         Carrito <Badge bg="success">{cartCount}</Badge>
                     </Nav.Link>
                     {user ? (
-                        <Navbar.Text>Hola {user.name}</Navbar.Text>
+                        <div className="d-flex gap-3 align-items-center">
+                            <Navbar.Text>Hola {user.name}</Navbar.Text>
+                            <Button size="sm" variant="outline-light" onClick={logout}>
+                                Salir
+                            </Button>
+                        </div>
                     ) : (
                         <div className="d-flex gap-2 ">
                             <Nav.Link as={Link} to="/login">

@@ -1,22 +1,17 @@
-import React from 'react'
+import { apiRequest } from "./api";
 
-export const productServices = async() => {
-  return [
-    {
-      id: 1,
-      name: "Hamburguesa Clásica",
-      price: 8000,
-      detail: "Carne vacuna, lechuga, tomate y aderezo",
-      img: "https://foodish-api.com/images/burger/burger50.jpg",
-      alt: "Hamburguesa Clásica"
-    },
-    {
-      id: 2,
-      name: "Cheese Burguer",
-      price: 9000,
-      detail: "Carne vacuna, chaddar y bacon",
-      img: "https://foodish-api.com/images/burger/burger1.jpg",
-      alt: "Cheese Burguer"
-    }
-  ]
-}
+export const getProducts = () => apiRequest("/products", { token: null });
+
+export const getProduct = (id) =>
+    apiRequest(`/products/${id}`, { token: null });
+
+export const createProduct = (token, product) =>
+    apiRequest("/products", { method: "POST", body: product, token });
+
+export const updateProduct = (token, id, product) =>
+    apiRequest(`/products/${id}`, { method: "PUT", body: product, token });
+
+export const deleteProduct = (token, id) =>
+    apiRequest(`/products/${id}`, { method: "DELETE", token });
+
+export const productServices = getProducts;

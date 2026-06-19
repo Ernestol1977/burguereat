@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { productServices } from "../services/productServices";
 import ProductCard from "../components/ProductCard";
+import { errorToast } from "../ui/notFound/notifications";
 
 const Menu = ({ addToCart }) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        productServices().then(setProducts);
+        productServices().then(setProducts).catch((error) => errorToast(error.message));
     }, []);
 
     return (

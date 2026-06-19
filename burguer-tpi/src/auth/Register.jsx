@@ -4,8 +4,12 @@ import { useState } from "react";
 import { Link } from "react-router";
 import { errorToast, successToast } from "../ui/notFound/notifications";
 import { validateRegister } from "../validations/registerValidation";
+import { useAuth } from "../services/auth/useAuth";
+import { useNavigate } from "react-router";
 
 const Register = () => {
+    const { register } = useAuth();
+    const navigate = useNavigate();
     const [form, setForm] = useState({
         name: "",
         lastName: "",
@@ -24,7 +28,7 @@ const Register = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const validationErrors = validateRegister(form);
@@ -38,10 +42,11 @@ const Register = () => {
         }
 
         try {
-            console.log(form);
+            await register(form);
             successToast("Usuario registrado correctamente!");
-        } catch {
-            errorToast("Error al registrarse");
+            navigate("/");
+        } catch (apiError) {
+            errorToast(apiError.message);
         }
     };
 

@@ -3,33 +3,29 @@ import { useState } from "react";
 import { Button, Card, CardBody, Container, Form } from "react-bootstrap";
 import { validateLogin } from "../validations/loginValidation.js";
 import { errorToast, successToast } from "../ui/notFound/notifications";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
+import { useAuth } from "../services/auth/useAuth";
 
-const Login = ({ setUser }) => {
+const Login = () => {
+    const { login } = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
     const [form, setForm] = useState({
         email: "",
         password: "",
     });
-
-    const [error, setError] = useState({});
 
     const handleChange = (e) => {
         setForm({
             ...form,
             [e.target.name]: e.target.value,
         });
-        setError((prev) => ({
-            ...prev,
-            [e.target.name]: "",
-        }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const validationErrors = validateLogin(form);
-
-        setError(validationErrors);
 
         if (Object.keys(validationErrors).length > 0) {
             Object.values(validationErrors).forEach((error) => {
@@ -38,9 +34,13 @@ const Login = ({ setUser }) => {
             return;
         }
 
-        successToast("Login válido");
-
-        console.log(form);
+        try {
+            await login(form);
+            successToast("Sesion iniciada correctamente");
+            navigate(location.state?.from || "/");
+        } catch (apiError) {
+            errorToast(apiError.message);
+        }
     };
 
     return (
