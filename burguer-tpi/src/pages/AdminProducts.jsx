@@ -131,7 +131,7 @@ const AdminProducts = () => {
                     onChange={handleChange}
                 />
                 <div className="d-flex gap-2">
-                    <Button type="submit" variant="warning">
+                    <Button type="submit" className="btn-create">
                         {editingId ? "Guardar" : "Crear"}
                     </Button>
                     {editingId && (
@@ -147,8 +147,7 @@ const AdminProducts = () => {
                 striped
                 bordered
                 hover
-                variant="dark"
-                className="mt-4"
+                className="mt-4 table-themed"
             >
                 <thead>
                     <tr>
@@ -167,7 +166,7 @@ const AdminProducts = () => {
                             <td className="d-flex gap-2">
                                 <Button
                                     size="sm"
-                                    className="btn-custom"
+                                    className="btn-custom-dark"
                                     onClick={() => handleEdit(product)}
                                 >
                                     Editar

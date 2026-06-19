@@ -1,15 +1,17 @@
 import "./navBar.css";
 import { Link } from "react-router";
-import { Navbar, Nav, Container, Badge, Button } from "react-bootstrap";
+import { Navbar, Nav, Container, Badge, Button, Form } from "react-bootstrap";
 import { useAuth } from "../services/auth/useAuth";
+import { useTheme } from "../services/theme/useTheme";
 
 const NavBar = ({ cartCount }) => {
     const { user, logout } = useAuth();
+    const { theme, toggleTheme } = useTheme();
     const isAdmin = user?.role === "admin" || user?.role === "super-admin";
     const isSuperAdmin = user?.role === "super-admin";
 
     return (
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar expand="lg" className="navbar-themed">
             <Container>
                 <Navbar.Brand as={Link} to="/" className="title">
                     <img
@@ -43,14 +45,33 @@ const NavBar = ({ cartCount }) => {
                     )}
                 </Nav>
 
-                <Nav>
+                {user && (
+                    <Navbar.Text className="navbar-greeting">
+                        Bienvenido <span className="navbar-greeting-user">{user.name}</span>
+                    </Navbar.Text>
+                )}
+
+                <Nav className="align-items-lg-center">
+                    <Form.Check
+                        type="switch"
+                        id="theme-switch"
+                        className="theme-switch me-lg-3"
+                        checked={theme === "light"}
+                        onChange={toggleTheme}
+                        label={
+                            theme === "light" ? "Modo claro" : "Modo oscuro"
+                        }
+                    />
                     <Nav.Link as={Link} to="/carrito">
                         Carrito <Badge bg="success">{cartCount}</Badge>
                     </Nav.Link>
                     {user ? (
                         <div className="d-flex gap-3 align-items-center">
-                            <Navbar.Text>Hola {user.name}</Navbar.Text>
-                            <Button size="sm" variant="outline-light" onClick={logout}>
+                            <Button
+                                size="sm"
+                                className="navbar-logout-btn"
+                                onClick={logout}
+                            >
                                 Salir
                             </Button>
                         </div>

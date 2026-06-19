@@ -3,19 +3,19 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:20px;
+    gap:30px;
     margin-bottom:20px;
   "
 >
   <img
     src="./public/logoHamburEat.png"
     alt="Logo BurgerEat"
-    width="120"
+    width="100"
   />
 
   <h1
     style="
-      color:#111111;
+      color:#000;
       background:#ff7a00;
       padding:14px 24px;
       border-radius:16px;
@@ -25,12 +25,12 @@
     BurgerEat
   </h1>
 </div>
-
+<div>
   <p style="color:#111111;background:#fff7f0;padding:16px 20px;border-radius:16px;line-height:1.6;">
     Aplicación web desarrollada con React para la gestión de pedidos de una hamburguesería.
     Está pensada para que un cliente pueda explorar el menú, registrarse, iniciar sesión,
     armar su carrito y consultar sus pedidos, mientras que los perfiles administrativos
-    pueden gestionar productos, pedidos y usuarios desde una interfaz simple y clara.
+    pueden gestionar productos, pedidos y usuarios (solo super-admin) desde una interfaz simple y clara.
   </p>
 </div>
 
@@ -39,13 +39,13 @@
 <table>
   <tr>
     <td width="33%">
-      <img src="./public/readme-menu-preview.svg" alt="Vista del menú" />
+      <img src="./public/menu_productos.svg" alt="Vista del menú" />
     </td>
     <td width="33%">
-      <img src="./public/readme-cart-preview.svg" alt="Vista del carrito" />
+      <img src="./public/carrito_confirmacion.svg" alt="Vista del carrito" />
     </td>
     <td width="33%">
-      <img src="./public/readme-admin-preview.svg" alt="Vista del panel administrativo" />
+      <img src="./public/panel_administrativo.svg" alt="Vista del panel administrativo" />
     </td>
   </tr>
   <tr>
@@ -57,7 +57,7 @@
 
 ## De Qué Se Trata
 
-BurgerEat es un- TPI de Programación III. Representa la experiencia web de una hamburguesería con tres perfiles de uso:
+BurgerEat es el TPI de Programación III. Representa la experiencia web de una hamburguesería con tres perfiles de uso:
 
 - `usuario`: navega el catálogo, agrega productos al carrito, confirma pedidos y revisa su historial.
 - `admin`: administra productos y controla el flujo de pedidos.
@@ -77,7 +77,7 @@ El proyecto está preparado para trabajar junto al backend `burguer-tpi-api`, co
 - Panel administrativo para:
   - ABM de productos.
   - Gestión de estados de pedidos.
-  - Administración de usuarios para `super-admin`.
+  - Administración de usuarios por el `super-admin`.
 
 ## Tecnologías Utilizadas
 
@@ -87,26 +87,13 @@ El proyecto está preparado para trabajar junto al backend `burguer-tpi-api`, co
 - Vite
 - React Router
 - React Bootstrap
-- React Toastify
+- Toastify
 - Bootstrap 5
 - Fetch API para integración con backend
 
 </div>
 
-## Estructura General
 
-```text
-src/
-  auth/                 Formularios de login y registro
-  components/           Navbar, routing y componentes reutilizables
-  pages/                Vistas principales y paneles administrativos
-  services/             Cliente API, auth context y servicios HTTP
-  ui/                   Notificaciones y ayudas visuales
-  validations/          Reglas de validación de formularios
-public/
-  logoHamburEat.png
-  readme-*.svg          Previews visuales usadas en este README
-```
 
 ## Flujo De Uso
 
@@ -132,8 +119,13 @@ Este frontend espera que la API esté disponible, por defecto, en:
 http://localhost:3001/api
 ```
 
-## Estado Del Proyecto
+## Escalabilidad
 
 <div style="background:#fff7f0;border-left:8px solid #ff7a00;padding:14px 18px;border-radius:12px;color:#111111;">
-  BurgerEat se encuentra orientado a un escenario académico realista: combina catálogo, autenticación, carrito, pedidos e interfaces administrativas en una sola SPA conectada a un backend propio con control de roles.
+  BurgerEat se encuentra orientado a un escenario académico: combina catálogo, autenticación, carrito, pedidos e interfaces administrativas en una sola SPA conectada a un backend propio con control de roles.<br>
+  En un futuro próximo, se le puede adaptar:
+
+- sistemas de pago.
+- geolocalización del reparto.
+- contacto por Whatsapp.
 </div>

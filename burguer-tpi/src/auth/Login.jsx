@@ -45,7 +45,7 @@ const Login = () => {
 
     return (
         <Container className="d-flex justify-content-center align-items-center min-vh-100">
-            <Card className="p-4 card">
+            <Card className="p-4 auth-card">
                 <CardBody>
                     <h4 className="text-center mb-4">Iniciar Sesión</h4>
                     <Form onSubmit={handleSubmit}>

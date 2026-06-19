@@ -3,7 +3,73 @@
   color: #ff7a00;
   font-weight: 700;
 }
+
+.navbar-themed {
+  background-color: var(--app-navbar-bg);
+  color: var(--app-navbar-text);
+}
+
+.navbar-themed .container {
+  position: relative;
+}
+
+.navbar-themed .navbar-nav .nav-link,
+.navbar-themed .navbar-text,
+.navbar-themed .theme-switch,
+.navbar-themed .theme-switch label {
+  color: var(--app-navbar-text);
+}
+
+.navbar-themed .navbar-nav .nav-link:hover,
+.navbar-themed .navbar-nav .nav-link:focus {
+  color: #ff7a00;
+}
+
+.navbar-logout-btn {
+  background-color: transparent;
+  color: var(--app-navbar-text);
+  border: 1px solid var(--app-navbar-text);
+}
+
+.navbar-logout-btn:hover {
+  background-color: #ff7a00;
+  color: #000;
+  border-color: #ff7a00;
+}
+
+.navbar-greeting {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.navbar-greeting-user {
+  color: #ff7a00;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.theme-switch .form-check-input {
+  cursor: pointer;
+}
+
+.theme-switch .form-check-label {
+  cursor: pointer;
+  white-space: nowrap;
+}
+
 .navbar-logo {
   height: 50px;
   width: auto;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-greeting {
+    position: static;
+    transform: none;
+    margin-right: 1rem;
+  }
 }

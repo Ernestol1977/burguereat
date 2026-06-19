@@ -11,10 +11,22 @@
   border: 1px solid transparent;
 }
 
+.btn-create {
+  background-color: #ff7a00;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.btn-create:hover {
+  background-color: #964900;
+  color: #000;
+  border-color: #000;
+}
+
 /* Ver detalle, restar, Editar */
 
 .btn-custom-dark {
-  background-color: #535353;
+  background-color: #212529;
   border: 1px solid #000;
 }
 
@@ -33,6 +45,53 @@
 .btn-delete:hover {
   background-color: #fc041d;
   border: 1px solid transparent;
+}
+
+[data-theme="light"] .btn-custom {
+  background-color: #ff7a00;
+  color: #000;
+  border-color: #b85600 !important;
+}
+
+[data-theme="light"] .btn-custom:hover {
+  background-color: #d86600;
+  color: #000;
+}
+
+[data-theme="light"] .btn-create {
+  background-color: #bdefff;
+  color: #000;
+  border-color: #7fcde5;
+}
+
+[data-theme="light"] .btn-create:hover {
+  background-color: #86d7ef;
+  color: #000;
+  border-color: #55bfdc;
+}
+
+[data-theme="light"] .btn-custom-dark {
+  background-color: #3f3f3f;
+  color: #fff;
+  border-color: #2f2f2f;
+}
+
+[data-theme="light"] .btn-custom-dark:hover {
+  background-color: #242424;
+  color: #fff;
+  border-color: #242424;
+}
+
+[data-theme="light"] .btn-delete {
+  background-color: #fff;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+}
+
+[data-theme="light"] .btn-delete:hover {
+  background-color: #dc3545;
+  color: #fff;
+  border-color: #dc3545;
 }
 
 /* Botones del carrito */

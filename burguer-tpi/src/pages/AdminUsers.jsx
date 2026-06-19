@@ -154,7 +154,7 @@ const AdminUsers = () => {
                     ))}
                 </Form.Select>
                 <div className="d-flex gap-2">
-                    <Button type="submit" variant="warning">
+                    <Button type="submit" className="btn-create">
                         {editingId ? "Guardar" : "Crear"}
                     </Button>
                     {editingId && (
@@ -170,8 +170,7 @@ const AdminUsers = () => {
                 striped
                 bordered
                 hover
-                variant="dark"
-                className="mt-4"
+                className="mt-4 table-themed"
             >
                 <thead>
                     <tr>
@@ -192,7 +191,7 @@ const AdminUsers = () => {
                             <td className="d-flex gap-2">
                                 <Button
                                     size="sm"
-                                    className="btn-custom"
+                                    className="btn-custom-dark"
                                     onClick={() => handleEdit(user)}
                                 >
                                     Editar

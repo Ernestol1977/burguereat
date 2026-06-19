@@ -23,7 +23,7 @@ const OrderHistory = () => {
             ) : (
                 <div className="d-flex flex-column gap-3">
                     {orders.map((order) => (
-                        <Card key={order.id} bg="dark" text="light">
+                        <Card key={order.id} className="themed-order-card">
                             <Card.Body>
                                 <div className="d-flex justify-content-between align-items-center">
                                     <Card.Title>Pedido #{order.id}</Card.Title>

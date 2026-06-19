@@ -26,19 +26,6 @@
   flex-wrap: wrap;
 }
 
-.btn-custom {
-  background-color: #ff7a00;
-  color: #000;
-  /* border: 2px #000 solid; */
-  border: none;
-}
-
-.btn-custom:hover {
-  background-color: #964900;
-  /* border: 2px solid transparent; */
-  border: none;
-}
-
 .btn-custom-volver {
   background-color: #ff7a00;
   color: #000;
@@ -49,4 +36,14 @@
   background-color: #000;
   color: #fff;
   border: none;
+}
+
+[data-theme="light"] .btn-custom-volver {
+  background-color: #3f3f3f;
+  color: #fff;
+}
+
+[data-theme="light"] .btn-custom-volver:hover {
+  background-color: #242424;
+  color: #fff;
 }

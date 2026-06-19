@@ -1,0 +1,133 @@
+:root {
+  color-scheme: dark;
+}
+
+[data-theme="dark"] {
+  --app-bg: #121212;
+  --app-text: #ffffff;
+  --app-heading: #ffffff;
+  --app-navbar-bg: #212529;
+  --app-navbar-text: #ffffff;
+  --app-card-bg: #ff7a00;
+  --app-card-text: #000000;
+  --app-panel-bg: #212529;
+  --app-panel-text: #ffffff;
+  --app-input-bg: #cc6300;
+  --app-input-focus-bg: #a35002;
+  --app-input-text: #000000;
+  --app-input-border: #000000;
+  --app-link: #ff9a3d;
+  --app-table-bg: #212529;
+  --app-table-striped-bg: #2c3034;
+  --app-table-text: #ffffff;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --app-bg: #f5f5f5;
+  --app-text: #000000;
+  --app-heading: #ff7a00;
+  --app-navbar-bg: #e9ecef;
+  --app-navbar-text: #000000;
+  --app-card-bg: #ffffff;
+  --app-card-text: #000000;
+  --app-panel-bg: #ffffff;
+  --app-panel-text: #000000;
+  --app-input-bg: #ffffff;
+  --app-input-focus-bg: #f1f3f5;
+  --app-input-text: #000000;
+  --app-input-border: #9aa0a6;
+  --app-link: #b85600;
+  --app-table-bg: #ffffff;
+  --app-table-striped-bg: #f1f3f5;
+  --app-table-text: #000000;
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+a {
+  color: var(--app-link);
+}
+
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3 {
+  color: #ff7a00;
+}
+
+.card-custom,
+.auth-card,
+.themed-order-card {
+  background: var(--app-card-bg);
+  color: var(--app-card-text);
+  border-color: #000000;
+}
+
+[data-theme="light"] .card-custom,
+[data-theme="light"] .auth-card,
+[data-theme="light"] .themed-order-card {
+  border-color: #d8d8d8;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .card-custom {
+  background: #fff3e6;
+}
+
+[data-theme="light"] .history-bg-color {
+  background-color: #fff3e6;
+  color: #000000;
+  border-color: #ffd0a3;
+}
+
+[data-theme="dark"] .history-bg-color {
+  color: #000000;
+}
+
+.form-control,
+.form-select,
+.form-check-input {
+  background-color: var(--app-input-bg);
+  border-color: var(--app-input-border);
+  color: var(--app-input-text);
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  background-color: var(--app-input-focus-bg);
+  border-color: var(--app-input-border);
+  color: var(--app-input-text);
+  box-shadow: none;
+}
+
+.form-control::placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="light"] .form-control::placeholder {
+  color: #666666;
+}
+
+.table-themed {
+  --bs-table-bg: var(--app-table-bg);
+  --bs-table-color: var(--app-table-text);
+  --bs-table-striped-bg: var(--app-table-striped-bg);
+  --bs-table-striped-color: var(--app-table-text);
+  --bs-table-hover-bg: rgba(255, 122, 0, 0.18);
+  --bs-table-hover-color: var(--app-table-text);
+  --bs-table-border-color: rgba(128, 128, 128, 0.45);
+}

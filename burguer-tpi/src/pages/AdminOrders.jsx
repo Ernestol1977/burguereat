@@ -87,7 +87,7 @@ const AdminOrders = () => {
                 />
             </Form>
 
-            <Table responsive striped bordered hover variant="dark" className="mt-4">
+            <Table responsive striped bordered hover className="mt-4 table-themed">
                 <thead>
                     <tr>
                         <th>ID</th>

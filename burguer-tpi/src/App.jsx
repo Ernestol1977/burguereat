@@ -1,4 +1,5 @@
 import "./app.css";
+import "./customs/theme.css";
 import { ToastContainer } from "react-toastify";
 import { BrowserRouter, Route, Routes } from "react-router";
 import { useState } from "react";
@@ -15,6 +16,7 @@ import ProtectedRoute from "./components/routing/ProtectedRoute";
 import AdminProducts from "./pages/AdminProducts";
 import AdminOrders from "./pages/AdminOrders";
 import AdminUsers from "./pages/AdminUsers";
+import { ThemeProvider } from "./services/theme/ThemeContext";
 
 function App() {
     const [cart, setCart] = useState([]);
@@ -44,68 +46,72 @@ function App() {
     return (
         <div>
             <ToastContainer />
-            <AuthProvider>
-                <BrowserRouter>
-                    <NavBar
-                        cartCount={cart.reduce(
-                            (acc, item) => acc + item.quantity,
-                            0,
-                        )}
-                    />
-                    <Routes>
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/register" element={<Register />} />
-                        <Route
-                            path="/"
-                            element={<Menu addToCart={addToCart} />}
+            <ThemeProvider>
+                <AuthProvider>
+                    <BrowserRouter>
+                        <NavBar
+                            cartCount={cart.reduce(
+                                (acc, item) => acc + item.quantity,
+                                0,
+                            )}
                         />
-                        <Route
-                            path="/detalle/:id"
-                            element={<ProductDetails addToCart={addToCart} />}
-                        />
-                        <Route
-                            path="/historial"
-                            element={
-                                <ProtectedRoute>
-                                    <OrderHistory />
-                                </ProtectedRoute>
-                            }
-                        />
-                        <Route
-                            path="/carrito"
-                            element={<Cart cart={cart} setCart={setCart} />}
-                        />
-                        <Route
-                            path="/admin/productos"
-                            element={
-                                <ProtectedRoute
-                                    roles={["admin", "super-admin"]}
-                                >
-                                    <AdminProducts />
-                                </ProtectedRoute>
-                            }
-                        />
-                        <Route
-                            path="/admin/pedidos"
-                            element={
-                                <ProtectedRoute
-                                    roles={["admin", "super-admin"]}
-                                >
-                                    <AdminOrders />
-                                </ProtectedRoute>
-                            }
-                        />
-                        <Route
-                            path="/admin/usuarios"
-                            element={
-                                <ProtectedRoute roles={["super-admin"]}>
-                                    <AdminUsers />
-                                </ProtectedRoute>
-                            }
-                        />
-                    </Routes>
-                </BrowserRouter>
-            </AuthProvider>
+                        <Routes>
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/register" element={<Register />} />
+                            <Route
+                                path="/"
+                                element={<Menu addToCart={addToCart} />}
+                            />
+                            <Route
+                                path="/detalle/:id"
+                                element={
+                                    <ProductDetails addToCart={addToCart} />
+                                }
+                            />
+                            <Route
+                                path="/historial"
+                                element={
+                                    <ProtectedRoute>
+                                        <OrderHistory />
+                                    </ProtectedRoute>
+                                }
+                            />
+                            <Route
+                                path="/carrito"
+                                element={<Cart cart={cart} setCart={setCart} />}
+                            />
+                            <Route
+                                path="/admin/productos"
+                                element={
+                                    <ProtectedRoute
+                                        roles={["admin", "super-admin"]}
+                                    >
+                                        <AdminProducts />
+                                    </ProtectedRoute>
+                                }
+                            />
+                            <Route
+                                path="/admin/pedidos"
+                                element={
+                                    <ProtectedRoute
+                                        roles={["admin", "super-admin"]}
+                                    >
+                                        <AdminOrders />
+                                    </ProtectedRoute>
+                                }
+                            />
+                            <Route
+                                path="/admin/usuarios"
+                                element={
+                                    <ProtectedRoute roles={["super-admin"]}>
+                                        <AdminUsers />
+                                    </ProtectedRoute>
+                                }
+                            />
+                        </Routes>
+                    </BrowserRouter>
+                </AuthProvider>
+            </ThemeProvider>
         </div>
     );
 }

@@ -52,7 +52,7 @@ const Register = () => {
 
     return (
         <Container className="d-flex justify-content-center mt-5">
-            <Card className="card p-4">
+            <Card className="auth-card p-4">
                 <CardBody>
                     <h4 className="text-center mb-4">Registrarse</h4>
 
