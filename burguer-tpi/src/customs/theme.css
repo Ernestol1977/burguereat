@@ -94,7 +94,9 @@ a {
 }
 
 [data-theme="dark"] .history-bg-color {
+  background-color: #ff7a00;
   color: #000000;
+  border-color: #000;
 }
 
 .form-control,

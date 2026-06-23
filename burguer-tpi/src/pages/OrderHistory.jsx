@@ -3,7 +3,7 @@ import { Badge, Card, ListGroup } from "react-bootstrap";
 import { useAuth } from "../services/auth/useAuth";
 import { getMyOrders } from "../services/orderServices";
 import { errorToast } from "../ui/notFound/notifications";
-import "../customs/orderHistory.css";
+import "../customs/theme.css";
 
 const OrderHistory = () => {
     const { token } = useAuth();
@@ -27,7 +27,7 @@ const OrderHistory = () => {
                             <Card.Body>
                                 <div className="d-flex justify-content-between align-items-center">
                                     <Card.Title>Pedido #{order.id}</Card.Title>
-                                    <Badge bg="warning" text="dark">
+                                    <Badge bg={order.status === "entregado" ? "danger" : "warning"} text="dark">
                                         {order.status}
                                     </Badge>
                                 </div>
