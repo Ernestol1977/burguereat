@@ -3,9 +3,9 @@ import { Button, Form, Table } from "react-bootstrap";
 import { useAuth } from "../services/auth/useAuth";
 import {
     createUser,
-    deleteUser,
     getUsers,
     updateUser,
+    deleteUser,
 } from "../services/userServices";
 import { errorToast, successToast } from "../ui/notFound/notifications";
 import "../customs/customBtns.css";
@@ -116,13 +116,13 @@ const AdminUsers = () => {
                 />
                 <Form.Control
                     name="address"
-                    placeholder="Direccion"
+                    placeholder="Dirección"
                     value={form.address}
                     onChange={handleChange}
                 />
                 <Form.Control
                     name="phone"
-                    placeholder="Telefono"
+                    placeholder="Teléfono"
                     value={form.phone}
                     onChange={handleChange}
                 />
@@ -137,7 +137,7 @@ const AdminUsers = () => {
                     <Form.Control
                         name="password"
                         type="password"
-                        placeholder="Password"
+                        placeholder="Contraseña"
                         value={form.password}
                         onChange={handleChange}
                     />

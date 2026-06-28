@@ -8,7 +8,7 @@
   "
 >
   <img
-    src="./public/logoHamburEat.png"
+    src="./public/burgerEat-logo.png"
     alt="Logo BurgerEat"
     width="100"
   />
@@ -93,8 +93,6 @@ El proyecto está preparado para trabajar junto al backend `burguer-tpi-api`, co
 
 </div>
 
-
-
 ## Flujo De Uso
 
 1. El visitante entra al menú y consulta productos disponibles.
@@ -128,4 +126,5 @@ http://localhost:3001/api
 - sistemas de pago.
 - geolocalización del reparto.
 - contacto por Whatsapp.
+- que cada usuario (cliente, admin, super-admin) pueda modificar su contraseña.
 </div>

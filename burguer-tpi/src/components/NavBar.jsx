@@ -15,7 +15,7 @@ const NavBar = ({ cartCount }) => {
             <Container>
                 <Navbar.Brand as={Link} to="/" className="title">
                     <img
-                        src="/logoHamburEat.png"
+                        src="./burgerEat-logo.png"
                         alt="BurgerEat"
                         className="navbar-logo"
                     />

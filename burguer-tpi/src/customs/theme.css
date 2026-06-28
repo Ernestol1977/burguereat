@@ -74,17 +74,22 @@ a {
   background: var(--app-card-bg);
   color: var(--app-card-text);
   border-color: #000000;
+	border-radius: 0.5;
 }
 
 [data-theme="light"] .card-custom,
 [data-theme="light"] .auth-card,
 [data-theme="light"] .themed-order-card {
-  border-color: #d8d8d8;
+  border-color: #ffd0a3;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
+.themed-order-card-terms{
+	border-radius: 10px;
+}
+
 [data-theme="light"] .card-custom {
-  background: #fff3e6;
+	background: #fff3e6;
 }
 
 [data-theme="light"] .history-bg-color {

@@ -13,5 +13,3 @@ export const updateProduct = (token, id, product) =>
 
 export const deleteProduct = (token, id) =>
     apiRequest(`/products/${id}`, { method: "DELETE", token });
-
-export const productServices = getProducts;
