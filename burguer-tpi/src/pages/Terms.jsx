@@ -104,7 +104,7 @@ const Terms = () => {
         <h4 className="mt-4">14. Modificaciones</h4>
         <p>
           BurgerEat podrá actualizar estos términos y condiciones en cualquier
-          momento. El uso continuado del sitio implica la aceptación de dichos
+          momento. El uso contínuo del sitio implica la aceptación de dichos
           cambios.
         </p>
 

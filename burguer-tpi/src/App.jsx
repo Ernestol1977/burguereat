@@ -16,6 +16,7 @@ import AdminProducts from "./pages/AdminProducts";
 import AdminOrders from "./pages/AdminOrders";
 import AdminUsers from "./pages/AdminUsers";
 import Terms from "./pages/Terms";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -50,6 +51,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          {/* Solo se muestra cuando te vas a registrar - check */}
           <Route path="/terms" element={<Terms />} />
           <Route path="/" element={<Menu addToCart={addToCart} />} />
           <Route
@@ -92,6 +94,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+					<Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>
