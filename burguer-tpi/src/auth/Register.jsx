@@ -124,9 +124,11 @@ const Register = () => {
                 checked={isAdult}
                 onChange={(e) => setIsAdult(e.target.checked)}
                 label={
-                  <div>
+                  <div className="terms">
                     Soy mayor de 18 años y acepto los{" "}
-                    <Link to="/terms">términos y condiciones</Link>
+                    <Link to="/terms" className="terms-link">
+                      términos y condiciones
+                    </Link>
                   </div>
                 }
               />

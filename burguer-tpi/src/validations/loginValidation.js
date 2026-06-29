@@ -19,7 +19,7 @@ export const validateLogin = (form) => {
                 una mayúscula,
                 una minúscula,
                 un número y
-                un carácter especial`;
+                un caracter especial`;
         }
     }
 

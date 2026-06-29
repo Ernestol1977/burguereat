@@ -146,3 +146,8 @@ a {
 	font-size: 5rem;
 	font-weight: bold;
 }
+
+.terms-link:hover {
+	color: #454545;
+	transition: all 200ms;
+}

@@ -2,6 +2,7 @@ import "../customs/customBtns.css";
 
 import { Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router";
+import { Trash, PlusLg, DashLg } from "react-bootstrap-icons";
 import { useAuth } from "../services/auth/useAuth";
 import { createOrder } from "../services/orderServices";
 import { errorToast, successToast } from "../ui/notFound/notifications";
@@ -53,8 +54,8 @@ const Cart = ({ cart, setCart }) => {
           quantity: item.quantity,
         })),
       );
-      setCart([]);
       successToast("Pedido creado correctamente");
+      setCart([]);
     } catch (apiError) {
       errorToast(apiError.message);
     }
@@ -85,21 +86,24 @@ const Cart = ({ cart, setCart }) => {
                   <Button
                     className="btn-custom cart-btn"
                     onClick={() => increaseQuantity(item.id)}
+										title="Aumentar"
                   >
-                    +
+										<PlusLg size={16} />
                   </Button>
                   <Button
                     className="btn-custom-dark cart-btn"
                     onClick={() => decreaseQuantity(item.id)}
+										title="Disminuir"
                   >
-                    -
+										<DashLg size={16} />
                   </Button>
                   <Button
                     variant="danger"
                     className="btn-delete cart-btn"
                     onClick={() => removeItem(item.id)}
+                    title="Eliminar producto"
                   >
-                    🗑️
+										<Trash size={18} />
                   </Button>
                 </div>
               </div>
