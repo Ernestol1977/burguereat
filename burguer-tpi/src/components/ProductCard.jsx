@@ -15,6 +15,7 @@ const ProductCard = ({ product, addToCart }) => {
             objectFit: "cover",
           }}
           src={product.img}
+					alt={product.name}
         />
         <Card.Body className="d-flex flex-column">
           <Card.Title>{product.name}</Card.Title>
@@ -22,7 +23,6 @@ const ProductCard = ({ product, addToCart }) => {
 
           <div className="d-flex justify-content-around mt-auto">
             <Button
-              variant="dark"
               className="btn-custom-dark"
               onClick={() => navigate(`/detalle/${product.id}`)}
             >
@@ -30,11 +30,10 @@ const ProductCard = ({ product, addToCart }) => {
             </Button>
 
             <Button
-              variant="custom"
               className="btn-custom"
               onClick={() => addToCart(product)}
             >
-              Seleccionar
+              Sumar al carrito
             </Button>
           </div>
         </Card.Body>

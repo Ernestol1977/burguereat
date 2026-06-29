@@ -1,9 +1,10 @@
+import "../customs/customBtns.css";
+
 import { Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router";
 import { useAuth } from "../services/auth/useAuth";
 import { createOrder } from "../services/orderServices";
 import { errorToast, successToast } from "../ui/notFound/notifications";
-import "../customs/customBtns.css";
 
 const Cart = ({ cart, setCart }) => {
   const navigate = useNavigate();

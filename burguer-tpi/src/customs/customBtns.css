@@ -8,6 +8,7 @@
 
 .btn-custom:hover {
   background-color: #964900;
+	color: #000;
   border: 1px solid transparent;
 }
 

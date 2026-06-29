@@ -1,3 +1,4 @@
+import { useParams } from "react-router";
 import { apiRequest } from "./api";
 
 export const createOrder = (token, items) =>
@@ -6,7 +7,7 @@ export const createOrder = (token, items) =>
 export const getMyOrders = (token) => apiRequest("/orders/my-orders", { token });
 
 export const getOrders = (token, filters = {}) => {
-    const params = new URLSearchParams();
+    const params = useParams();
 
     Object.entries(filters).forEach(([key, value]) => {
         if (value) {
