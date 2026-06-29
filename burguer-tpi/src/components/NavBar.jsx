@@ -13,7 +13,7 @@ const NavBar = ({ cartCount }) => {
   return (
     <Navbar expand="lg" className="navbar-themed">
       <Container>
-        <Navbar.Brand as={Link} to="/" className="title">
+        <Navbar.Brand as={Link} to="/">
           <img
             src="./public/burgerEat-logo.png"
             alt="BurgerEat"
