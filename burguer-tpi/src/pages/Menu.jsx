@@ -15,7 +15,7 @@ const Menu = ({ addToCart }) => {
   return (
     <>
       <h3 className="mx-5 my-4">Bienvenido a BurgerEat</h3>
-      <div className="container mt-4 d-flex gap-3 flex-wrap">
+      <div className="container mt-4 d-flex gap-3 flex-wrap justify-content-center">
         {products ?
 					products.map((p) => (
             <ProductCard key={p.id} product={p} addToCart={addToCart} />

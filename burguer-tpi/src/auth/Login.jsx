@@ -36,7 +36,7 @@ const Login = () => {
 
     try {
       await login(form);
-      successToast("Sesion iniciada correctamente");
+      successToast("Sesión iniciada correctamente");
       navigate(location.state?.from || "/");
     } catch (apiError) {
       errorToast(apiError.message);

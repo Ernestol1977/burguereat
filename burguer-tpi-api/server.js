@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/api", (req, res) => {
-    res.json({ status: "ok", message: "BurgerEat API running" });
+    res.json({ status: "200", message: "BurgerEat API running" });
 });
 
 app.use(authRoutes);
